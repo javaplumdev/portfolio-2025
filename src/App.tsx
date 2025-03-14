@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './App.css';
+import './styles/App.css';
 import Landing from './modules/landing/Landing';
 import BaseLayout from './components/base/layouts/BaseLayout';
 import AppProviders from './modules/app/AppProviders';

@@ -6,15 +6,16 @@ type BaseButtonProps = {
   link?: string;
   children: Children;
   isLoading?: boolean;
-  icon?: React.ReactNode;
-} & ComponentProps<typeof Button>;
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
+} ;
 
-const BaseButton: React.FC<BaseButtonProps> = (props) => {
-  const {children, link, icon, isLoading, ...rest} = props;
+const BaseButton: React.FC<BaseButtonProps & ComponentProps<typeof Button>> = (props) => {
+  const {children, link, startIcon, isLoading, endIcon, ...rest} = props;
 
   const content = (
     <React.Fragment>
-      {icon && icon} {children}
+      {startIcon && startIcon} {children} {endIcon && endIcon}
     </React.Fragment>
   );
 
@@ -28,7 +29,7 @@ const BaseButton: React.FC<BaseButtonProps> = (props) => {
 
   return (
     <Button disabled={isLoading} {...rest}>
-      {children}
+      {content}
     </Button>
   );
 };
